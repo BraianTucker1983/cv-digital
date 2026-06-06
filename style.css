@@ -1,0 +1,237 @@
+/* ==========================================================================
+   1. RESET & VARIABLES (Configuración inicial)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-main: #121214;       /* Gris casi negro para el fondo general */
+    --bg-card: #1e1e24;       /* Gris oscuro para las tarjetas/secciones */
+    --bg-hover: #2a2a32;      /* Gris intermedio para efectos hover */
+    --text-primary: #ffffff;  /* Blanco puro para títulos principales */
+    --text-secondary: #a0a0aa;/* Gris claro para textos y párrafos */
+    --accent: #e4e4e7;         /* Gris muy claro/blanco hueso para destacar bordes o links */
+    --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    padding: 20px 10px;
+}
+
+/* Container principal para centrar el contenido en pantallas grandes */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. HEADER (Presentación)
+   ========================================================================== */
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+.main-header h1 {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+
+.main-header h2 {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Enlaces a redes */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid #333338;
+    border-radius: 6px;
+    background-color: var(--bg-card);
+    transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+/* ==========================================================================
+   3. ESTILOS GENERALES DE SECCIONES (Cards)
+   ========================================================================== */
+.section-card {
+    background-color: var(--bg-card);
+    border: 1px solid #27272a; /* Borde sutil inicial */
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+    
+    /* TRANSICIÓN: Esto hace que el efecto no sea brusco, sino que tarde 0.3 segundos en iluminarse */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima de cualquier sección principal */
+.section-card:hover {
+    border-color: #52525b; /* El borde pasa a un gris más claro y visible */
+    
+    /* Un brillo sutil oscuro (sombras) para darle profundidad */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); 
+}
+
+/* ==========================================================================
+   4. TRAYECTORIA PROFESIONAL (Experiencia)
+   ========================================================================== */
+.job-item {
+    margin-bottom: 25px;
+}
+
+.job-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.job-header h4 {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+}
+
+.job-date {
+    font-size: 0.85rem;
+    color: #71717a;
+}
+
+.job-company {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.job-item ul {
+    list-style-position: inside;
+    padding-left: 5px;
+}
+
+.job-item li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.job-item li strong {
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   5. HABILIDADES (Grid de 3 columnas)
+   ========================================================================== */
+.skills-group {
+    background-color: var(--bg-main);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #27272a;
+    
+    /* Transición suave para las sub-tarjetas */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-group:hover {
+    border-color: #a1a1aa; /* Un gris todavía más claro para que resalte la habilidad */
+    transform: translateY(-2px); /* Se eleva un milímetro, da sensación de botón */
+}
+
+/* ==========================================================================
+   6. PROYECTOS
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Uno abajo del otro, expandible a 2 luego */
+    gap: 20px;
+}
+
+.project-item {
+    background-color: var(--bg-main);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #27272a;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-2px);
+    border-color: #52525b;
+}
+
+.project-item h4 {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.project-item p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--text-secondary);
+    transition: border-color 0.2s ease;
+}
+
+.project-link:hover {
+    border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Ajustes para celular)
+   ========================================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px 5px;
+    }
+    
+    .section-card {
+        padding: 20px;
+    }
+    
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    
+    .job-header {
+        flex-direction: column;
+    }
+}
