@@ -13,7 +13,7 @@
     --bg-hover: #2a2a32;      /* Gris intermedio para efectos hover */
     --text-primary: #ffffff;  /* Blanco puro para títulos principales */
     --text-secondary: #a0a0aa;/* Gris claro para textos y párrafos */
-    --accent: #e4e4e7;         /* Gris muy claro/blanco hueso para destacar bordes o links */
+    --accent: #e4e4e7;        /* Gris muy claro/blanco hueso para destacar bordes o links */
     --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -89,17 +89,28 @@ body {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 25px;
-    
-    /* TRANSICIÓN: Esto hace que el efecto no sea brusco, sino que tarde 0.3 segundos en iluminarse */
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima de cualquier sección principal */
 .section-card:hover {
     border-color: #52525b; /* El borde pasa a un gris más claro y visible */
-    
-    /* Un brillo sutil oscuro (sombras) para darle profundidad */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.section-card h3 {
+    color: var(--text-primary);
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #27272a;
+}
+
+.section-card p {
+    margin-bottom: 12px;
+}
+
+.section-card p:last-child {
+    margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -138,8 +149,7 @@ body {
 }
 
 .job-item ul {
-    list-style-position: inside;
-    padding-left: 5px;
+    padding-left: 20px;
 }
 
 .job-item li {
@@ -154,19 +164,33 @@ body {
 /* ==========================================================================
    5. HABILIDADES (Grid de 3 columnas)
    ========================================================================== */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+}
+
 .skills-group {
     background-color: var(--bg-main);
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #27272a;
-    
-    /* Transición suave para las sub-tarjetas */
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .skills-group:hover {
-    border-color: #a1a1aa; /* Un gris todavía más claro para que resalte la habilidad */
-    transform: translateY(-2px); /* Se eleva un milímetro, da sensación de botón */
+    border-color: #a1a1aa;
+    transform: translateY(-2px);
+}
+
+.skills-group h4 {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.skills-group p {
+    font-size: 0.9rem;
 }
 
 /* ==========================================================================
