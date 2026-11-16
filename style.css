@@ -80,6 +80,24 @@ body {
     border-color: var(--accent);
 }
 
+.btn-print {
+    color: var(--bg-main);
+    background-color: var(--accent);
+    font-family: var(--font-stack);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-print:hover {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
 /* ==========================================================================
    3. ESTILOS GENERALES DE SECCIONES (Cards)
    ========================================================================== */
@@ -257,5 +275,119 @@ body {
     
     .job-header {
         flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   8. ESTILOS DE IMPRESIÓN / EXPORTACIÓN A PDF
+   ========================================================================== */
+@media print {
+    body {
+        background-color: #ffffff;
+        color: #222222;
+        padding: 0;
+        font-size: 11pt;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .main-header {
+        padding: 10px 0 20px 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #222222;
+    }
+
+    .main-header h1 {
+        color: #000000;
+        font-size: 20pt;
+    }
+
+    .main-header h2 {
+        color: #444444;
+        font-size: 11pt;
+        margin-bottom: 10px;
+    }
+
+    /* Oculta el botón de descarga al imprimir y convierte los links en texto limpio */
+    .btn-print {
+        display: none;
+    }
+
+    .social-links {
+        gap: 12px;
+    }
+
+    .social-links a {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        color: #222222;
+        font-size: 9.5pt;
+    }
+
+    /* Muestra las URLs completas al lado de cada enlace en el PDF */
+    .social-links a::after {
+        content: " (" attr(href) ")";
+        font-size: 8.5pt;
+        color: #555555;
+    }
+
+    .section-card {
+        background-color: #ffffff;
+        border: none;
+        padding: 0;
+        margin-bottom: 18px;
+        box-shadow: none !important;
+    }
+
+    .section-card h3 {
+        color: #000000;
+        font-size: 13pt;
+        border-bottom: 1px solid #cccccc;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+    }
+
+    .job-header h4,
+    .job-item li strong,
+    .skills-group h4,
+    .project-item h4 {
+        color: #000000;
+    }
+
+    .job-company {
+        color: #333333;
+        font-weight: 600;
+    }
+
+    .job-date {
+        color: #555555;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .skills-group,
+    .project-item {
+        background-color: #f9f9f9;
+        border: 1px solid #dddddd;
+        padding: 12px;
+        break-inside: avoid; /* Evita que una tarjeta se corte a la mitad entre dos páginas */
+    }
+
+    .project-link {
+        color: #000000;
+        border-bottom: none;
+    }
+
+    .project-link::after {
+        content: " (" attr(href) ")";
+        font-size: 8.5pt;
+        color: #444444;
     }
 }
